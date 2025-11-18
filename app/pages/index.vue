@@ -1,51 +1,6 @@
 ﻿<script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-const testimonialSlides = [
-  {
-    image: 'https://dummyimage.com/640x360/e5e7eb/9ca3af&text=Case+Image+1',
-    logo: 'https://dummyimage.com/160x48/f8fafc/1f2937&text=Brand+One',
-    quote: '借助 Goodurs，企业可以在多团队协作中保持透明和高效，快速复制跨区域的交付经验。',
-    link: '#'
-  },
-  {
-    image: 'https://dummyimage.com/640x360/d1d5db/4b5563&text=Case+Image+2',
-    logo: 'https://dummyimage.com/160x48/ffffff/0f172a&text=Brand+Two',
-    quote: '我们通过 Goodurs 的内容运营体系让全球站点保持统一体验，并显著缩短上线周期。',
-    link: '#'
-  },
-  {
-    image: 'https://dummyimage.com/640x360/cbd5f5/0f172a&text=Case+Image+3',
-    logo: 'https://dummyimage.com/160x48/fef3c7/92400e&text=Brand+Three',
-    quote: 'Goodurs 的数据驱动方案帮助我们的运维团队在数周内完成跨地区整合，运营成本下降 30%。',
-    link: '#'
-  }
-]
-
-const activeSlide = ref(0)
-let sliderTimer: number | null = null
-
-const startSlider = () => {
-  stopSlider()
-  sliderTimer = window.setInterval(() => {
-    activeSlide.value = (activeSlide.value + 1) % testimonialSlides.length
-  }, 5000)
-}
-
-const stopSlider = () => {
-  if (sliderTimer !== null) {
-    clearInterval(sliderTimer)
-    sliderTimer = null
-  }
-}
-
-const setSlide = (index: number) => {
-  activeSlide.value = index
-  startSlider()
-}
-
-onMounted(startSlider)
-onBeforeUnmount(stopSlider)
 </script>
 
 <template>
