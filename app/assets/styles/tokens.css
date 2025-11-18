@@ -1,0 +1,45 @@
+:root {
+  --color-bg-body: #ffffff;
+  --color-surface: #ffffff;
+  --color-text-primary: #1d1e25;
+  --color-text-muted: #4b5563;
+  --color-text-inverse: #f8fafc;
+  --color-brand: #0ea5e9;
+  --color-brand-strong: #0284c7;
+  --color-navy: #0f172a;
+  --color-orange: #ff6a00;
+  --shadow-soft: 0 10px 28px rgba(22, 26, 52, 0.1);
+  --shadow-strong: 0 24px 40px rgba(10, 26, 58, 0.25);
+  --radius-card: 16px;
+  --radius-pill: 999px;
+  --font-family-base: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  background: var(--color-bg-body);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+}

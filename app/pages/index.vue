@@ -1,4 +1,4 @@
-﻿<scr .quote-slider {`r`n  background: #f1f2f4;`r`n  border-radius: 24px;`r`n  padding: 1.5rem;`r`n  display: grid;`r`n  gap: 1rem;`r`n}`r`n`r`n.quote-slider-track {`r`n  display: flex;`r`n  transition: transform 0.5s ease;`r`n}`r`n`r`.quote-slide {`r`n  min-width: 100%;`r`n  display: grid;`r`n  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);`r`n  background: #ffffff;`r`n  border-radius: 20px;`r`n  overflow: hidden;`r`n}`r`n`r`.quote-image img {`r`n  width: 100%;`r`n  height: 100%;`r`n  object-fit: cover;`r`n  display: block;`r`n}`r`n`r`.quote-content {`r`n  display: grid;`r`n  gap: 1rem;`r`n  align-content: center;`r`n  padding: 2.5rem;`r`n}`r`n`r`.quote-logo {`r`n  max-width: 200px;`r`n  object-fit: contain;`r`n}`r`n`r`.quote-text {`r`n  margin: 0;`r`n  font-size: 1.1rem;`r`n  line-height: 1.7;`r`n  color: #1f2933;`r`n}`r`n`r`.quote-dots {`r`n  display: flex;`r`n  justify-content: center;`r`n  gap: 0.5rem;`r`n}`r`n`r`.quote-dots .dot {`r`n  width: 32px;`r`n  height: 4px;`r`n  border-radius: 999px;`r`n  border: none;`r`n  background: rgba(15, 23, 42, 0.25);`r`n  cursor: pointer;`r`n}`r`n`r`.quote-dots .dot.active {`r`n  background: #0f172a;`r`n}`r`n`r`n@media (max-width: 960px)pt setup lang="ts">
+﻿<script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const testimonialSlides = [
@@ -324,6 +324,80 @@ onBeforeUnmount(stopSlider)
         </div>
       </div>
     </div>
+
+    <div class="case-section">
+      <div class="case-header-row">
+        <button class="case-tag">案例研究</button>
+
+        <div class="case-line"></div>
+
+        <button class="case-btn">查看所有案例研究</button>
+      </div>
+
+      <div class="case-content">
+        <div class="case-title-01">
+          为各种规模的企业带来卓越成果。
+        </div>
+
+        <div class="case-desc">
+          使用 Nuclx 扩展您的业务。<br>
+          证明就在于我们的客户成功。
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-inner">
+      <!-- Tabs -->
+      <nav class="testimonial-tabs">
+        <button class="testimonial-tab">Enterprise</button>
+        <button class="testimonial-tab active">Mid-Sized Business</button>
+        <button class="testimonial-tab">Small Business</button>
+      </nav>
+
+      <!-- Card -->
+      <div class="testimonial-card">
+        <div class="testimonial-main">
+          <div class="testimonial-image">
+            <!-- 换成你本地的图片路径即可 -->
+            <img src="https://www.hubspot.com/hs-fs/hubfs/angel-FC.png?width=600&height=400&name=angel-FC.png"
+              alt="Angel City FC fans" />
+          </div>
+          <div class="testimonial-text">
+            <p class="quote">
+              “HubSpot gave us the tools we needed to grow without losing the personal
+              connection with our fans. Their support has been vital to our continued
+              marketing success.”
+            </p>
+            <p class="author">Whitney Hallock</p>
+            <p class="title">
+              Director of Marketing &amp; Experience, Angel City FC
+            </p>
+            <a href="#" class="cta">Read full case study</a>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="testimonial-stats">
+          <div class="testimonial-stat">
+            <div class="testimonial-stat-number">300%+</div>
+            <div class="testimonial-stat-label">
+              fan database growth in just 2 years
+            </div>
+          </div>
+          <div class="testimonial-stat">
+            <div class="testimonial-stat-number">~350</div>
+            <div class="testimonial-stat-label">
+              new fan sign-ups per week
+            </div>
+          </div>
+          <div class="testimonial-stat">
+            <div class="testimonial-stat-number">7</div>
+            <div class="testimonial-stat-label">
+              minutes average content engagement time
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -577,7 +651,7 @@ onBeforeUnmount(stopSlider)
 }
 
 .case-title {
-  font-size: 22px;
+  font-size: 17px;
   line-height: 1;
   font-weight: 500;
   margin-bottom: -20px;
@@ -1121,5 +1195,231 @@ onBeforeUnmount(stopSlider)
     width: calc(100% - 48px);
   }
 }
-</style>
 
+.case-section {
+  width: 100%;
+  max-width: 1280px;
+  margin: -50px auto;
+  padding: 20px;
+  font-family: "Georgia", serif;
+}
+
+/* --- 顶部：标签、横线、按钮 --- */
+.case-header-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.case-tag {
+  padding: 10px 18px;
+  background: white;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  border-radius: 8px;
+  /* 变小圆角 */
+  cursor: pointer;
+}
+
+.case-line {
+  flex: 1;
+  height: 0;
+  border-bottom: 1px dashed #dcdcdc;
+  margin: 0 20px;
+}
+
+.case-btn {
+  padding: 10px 20px;
+  border: 1px solid #222;
+  background: white;
+  font-size: 15px;
+  border-radius: 8px;
+  /* 小圆角按钮 */
+  cursor: pointer;
+}
+
+/* --- 主内容：左右布局 --- */
+.case-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+/* 左侧粗体标题 */
+.case-title-01 {
+  width: 45%;
+  font-size: 46px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* 右侧说明文字 */
+.case-desc {
+  width: 30%;
+  font-size: 19px;
+  line-height: 1.7;
+  font-family: "Inter", sans-serif;
+  color: #333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  background-color: #ffffff;
+  color: #1f1f1f;
+}
+
+.testimonial-section {
+  padding: 56px 16px 72px;
+}
+
+.testimonial-inner {
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+/* Tabs */
+.testimonial-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-size: 16px;
+}
+
+.testimonial-tab {
+  position: relative;
+  padding: 6px 0 10px;
+  border: none;
+  background: none;
+  color: #6b7280;
+  cursor: pointer;
+  font: inherit;
+  outline: none;
+  transition: color 0.15s ease;
+}
+
+.testimonial-tab:hover {
+  color: #111827;
+}
+
+.testimonial-tab.active {
+  color: #111827;
+  font-weight: 600;
+}
+
+.testimonial-tab.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: #ff4800;
+  border-radius: 999px;
+}
+
+/* Card */
+.testimonial-card {
+  margin-top: 28px;
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 18px 40px rgba(15, 35, 52, 0.08);
+  padding: 32px 40px 28px;
+}
+
+.testimonial-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+}
+
+.testimonial-image img {
+  width: 100%;
+  display: block;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.testimonial-text .quote {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.testimonial-text .author {
+  margin: 0 0 4px;
+  font-weight: 600;
+}
+
+.testimonial-text .title {
+  margin: 0 0 14px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.testimonial-text .cta {
+  font-size: 14px;
+  color: #ff4800;
+  text-decoration: none;
+  border-bottom: 2px solid #ff4800;
+  padding-bottom: 2px;
+}
+
+.testimonial-text .cta:hover {
+  color: #c93700;
+  border-color: #c93700;
+}
+
+/* Stats */
+.testimonial-stats {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  text-align: center;
+}
+
+.testimonial-stat-number {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.testimonial-stat-label {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* 响应式 */
+@media (max-width: 960px) {
+  .testimonial-card {
+    padding: 24px 20px 24px;
+  }
+
+  .testimonial-main {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testimonial-tabs {
+    gap: 24px;
+    font-size: 15px;
+    flex-wrap: wrap;
+  }
+}
+</style>
